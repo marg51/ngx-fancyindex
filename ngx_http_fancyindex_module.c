@@ -752,7 +752,7 @@ make_content_buf(
             } else {
                 length = entry[i].size;
 
-                if (length > 1024 * 1024 * 1024 - 1) {
+                if (length > 1024 * 1024 * 1024 * 10 - 1) {
                     size = (ngx_int_t) (length / (1024 * 1024 * 1024));
                     if ((length % (1024 * 1024 * 1024))
                                                 > (1024 * 1024 * 1024 / 2 - 1))
@@ -761,7 +761,7 @@ make_content_buf(
                     }
                     scale = 'G';
 
-                } else if (length > 1024 * 1024 - 1) {
+                } else if (length > 1024 * 1024 * 10 - 1) {
                     size = (ngx_int_t) (length / (1024 * 1024));
                     if ((length % (1024 * 1024)) > (1024 * 1024 / 2 - 1)) {
                         size++;
